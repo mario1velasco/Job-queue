@@ -15,7 +15,7 @@ export class RunningService {
 
   startJob(job: Job): any {
     job.startRunning = new Date();
-    job.time = Math.floor((Math.random() * 18) + 2);
+    job.time = Math.floor((Math.random() * 19) + 2);
     this.jobs.push(job);
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
