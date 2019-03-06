@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="end">
+<div fxLayout="row" fxLayoutAlign="space-between">
   <div id='pending'>
     <h2>
       {{pendingJobs.length}}
@@ -6,7 +6,7 @@
     <h3>
       Pending Jobs
     </h3>
-    <button mat-raised-button (click)="openPending()">See all</button>
+    <button mat-raised-button (click)="openPending('pending')">See all</button>
   </div>
   <div id='running'>
     <h2>
@@ -15,6 +15,7 @@
     <h3>
       Running Jobs
     </h3>
+    <button mat-raised-button (click)="openPending('running')">See all</button>
   </div>
   <div id='finished'>
     <h2>
@@ -23,8 +24,22 @@
     <h3>
       Finished Jobs
     </h3>
+    <button mat-raised-button (click)="openPending('finished')">See all</button>
   </div>
-  <button mat-icon-button color="warn" (click)="start()">
+</div>
+<div fxLayout="row" id='form' *ngIf="!running">
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="threads" placeholder="Select the number of threads" type="number">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="jobs" placeholder="Select the number of jobs" type="number">
+  </mat-form-field>
+  <button mat-icon-button color="warn" (click)="startThreads()">
     START
+  </button>
+</div>
+<div fxLayout="column" id='form' *ngIf="running">
+  <button mat-icon-button color="warn" (click)="restart()">
+    RESTART
   </button>
 </div>

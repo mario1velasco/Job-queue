@@ -2,26 +2,42 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
 
-## Development server
+## Funcionamiento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+El proyecto esta formado por un modelo, dos componentes y tres servicios
 
-## Code scaffolding
+## Modelo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Se llama job.model.ts y es el que guarda la información de cada trabajo
 
-## Build
+## Componentes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Index component
 
-## Running unit tests
+Formado por 3 arrays de tipo Job (modelo) que gestionan los trabajos
+Dos input con los que seleccionas el numero de hilos y los trabajos que quieres crear
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Pending component
 
-## Running end-to-end tests
+Es un componente reutilizable, que esta basado en una ventana que al abrir muestra los trabajos que actualmente estan en la cola en el momento de su selección (para ver cambios debes vovler a cargar la vista)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Servicios
 
-## Further help
+- Pending Service
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Se encarga de incializar la cola de pendientes asignado un nombre Random
+
+- Running Service
+
+Se encarga de realizar la tareas, calcula el tiempo que le llevara ejecutarse y mediante una promesa se queda esperando ese tiempo. Una vez acabado avisa a Indez component para que actualice las colas.
+
+- Finished Service
+
+Indica si la tarea se ejecuto correctamente
+
+
+## Mejoras a realizar
+
+Añadir efectos CSS para que la visalización sea mas satisfactoria
+Añadir más funcionalidades en los servicios
+Usar el patrón comando

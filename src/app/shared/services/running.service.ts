@@ -9,9 +9,13 @@ export class RunningService {
 
   constructor() { }
 
-  addJobToQueue(job: Job): any {
+  getJobs(): Array<Job> {
+    return this.jobs;
+  }
+
+  startJob(job: Job): any {
     job.startRunning = new Date();
-    job.time = Math.floor((Math.random() * 2) + 2);
+    job.time = Math.floor((Math.random() * 18) + 2);
     this.jobs.push(job);
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {

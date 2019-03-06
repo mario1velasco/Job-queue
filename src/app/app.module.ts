@@ -16,7 +16,7 @@ import {
 import { IndexComponent } from './components/index/index.component';
 import { PendingComponent } from './components/pending/pending.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     NoopAnimationsModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
     MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
     MatDialogModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatGridListModule,

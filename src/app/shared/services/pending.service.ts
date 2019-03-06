@@ -18,10 +18,6 @@ export class PendingService {
     return this.jobs;
   }
 
-  finishJobPending(): Job {
-    return this.jobs.shift();
-  }
-
   createName(): string {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -29,5 +25,13 @@ export class PendingService {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
+  }
+
+  getJobs(): Array<Job> {
+    return this.jobs;
+  }
+
+  finishJobPending(): Job {
+    return this.jobs.shift();
   }
 }

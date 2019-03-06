@@ -1,3 +1,5 @@
+// This component render a table which paint the queues
+
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
@@ -7,7 +9,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./pending.component.css']
 })
 export class PendingComponent implements OnInit {
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'success', 'time'];
+  // This.data could be any of the 3 queues
   dataSource = this.data;
 
   constructor(
