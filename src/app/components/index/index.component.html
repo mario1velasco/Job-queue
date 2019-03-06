@@ -1,4 +1,4 @@
-<div>
+<div fxLayout="column" fxLayoutAlign="end">
   <div id='pending'>
     <h2>
       {{pendingJobs.length}}
@@ -6,6 +6,7 @@
     <h3>
       Pending Jobs
     </h3>
+    <button mat-raised-button (click)="openPending()">See all</button>
   </div>
   <div id='running'>
     <h2>

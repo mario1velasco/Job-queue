@@ -1,8 +1,10 @@
+import { PendingComponent } from './../pending/pending.component';
 import { FinishedService } from './../../shared/services/finished.service';
 import { PendingService } from './../../shared/services/pending.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Job } from 'src/app/shared/models/job.model';
 import { RunningService } from 'src/app/shared/services/running.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-index',
@@ -17,11 +19,23 @@ export class IndexComponent implements OnInit {
   constructor(
     private pendingService: PendingService,
     private runningService: RunningService,
-    private finishedService: FinishedService
+    private finishedService: FinishedService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
     this.pendingJobs = this.pendingService.initialize(8);
+  }
+
+  openPending() {
+    const dialogRef = this.dialog.open(PendingComponent, {
+      width: '550px',
+      data: this.pendingJobs
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   start(): void {
@@ -37,6 +51,4 @@ export class IndexComponent implements OnInit {
       });
     }
   }
-
-
 }

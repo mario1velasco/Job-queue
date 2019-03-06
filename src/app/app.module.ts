@@ -14,16 +14,24 @@ import {
   MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
 } from '@angular/material';
 import { IndexComponent } from './components/index/index.component';
+import { PendingComponent } from './components/pending/pending.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    PendingComponent
+  ],
+  entryComponents: [
+    PendingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
     MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule,
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
