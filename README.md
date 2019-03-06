@@ -38,7 +38,7 @@ Indica si la tarea se ejecuto correctamente
 
 ## Mejoras a realizar
 
-Añadir y eliminar el tiempo real los elementos mostrados en la tabla sin necesidad de recargar otra vez la tabla
-Añadir efectos CSS para que la visualización sea mas satisfactoria
-Añadir más funcionalidades en los servicios
-Usar el patrón comando
+- Añadir y eliminar el tiempo real los elementos mostrados en la tabla sin necesidad de recargar otra vez la tabla
+- Añadir efectos CSS para que la visualización sea mas satisfactoria
+- Añadir más funcionalidades en los servicios
+- Usar el patrón comando
