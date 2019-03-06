@@ -1,3 +1,24 @@
-<p>
-  index works!
-</p>
+<div>
+  <div id='pending'>
+    <h2>
+      {{pendingJobs.length}}
+    </h2>
+    <h3>
+      Pending Jobs
+    </h3>
+  </div>
+  <div id='running'>
+    <h2>
+      {{runningJobs.length}}
+    </h2>
+    <h3>
+      Running Jobs
+    </h3>
+  </div>
+  <div id='finished'>
+
+  </div>
+  <button mat-icon-button color="warn" (click)="start()">
+    START
+  </button>
+</div>
