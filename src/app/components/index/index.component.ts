@@ -1,3 +1,4 @@
+import { FinishedService } from './../../shared/services/finished.service';
 import { PendingService } from './../../shared/services/pending.service';
 import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/shared/models/job.model';
@@ -11,10 +12,12 @@ import { RunningService } from 'src/app/shared/services/running.service';
 export class IndexComponent implements OnInit {
   pendingJobs: Array<Job>;
   runningJobs: Array<Job> = new Array<Job>();
+  finishedJobs: Array<Job> = new Array<Job>();
 
   constructor(
     private pendingService: PendingService,
-    private runningService: RunningService
+    private runningService: RunningService,
+    private finishedService: FinishedService
   ) { }
 
   ngOnInit() {
@@ -22,15 +25,14 @@ export class IndexComponent implements OnInit {
   }
 
   start(): void {
-    debugger
-    if (this.runningJobs.length === 0){
+    if ((this.runningJobs.length === 0) && this.pendingJobs.length !== 0) {
       let job = this.pendingService.finishJobPending();
       this.runningJobs.push(job);
       this.runningService.addJobToQueue(job).then(() => {
-        debugger
-        console.log("Task Complete!");
+        console.log('Task Complete!');
         this.runningService.finishJobExecution();
-        this.runningJobs.shift();
+        this.finishedJobs.push(this.runningJobs.shift());
+        this.finishedService.addJobToQueue(job);
         this.start();
       });
     }
