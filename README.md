@@ -19,17 +19,17 @@ Dos input con los que seleccionas el numero de hilos y los trabajos que quieres 
 
 - Pending component
 
-Es un componente reutilizable, que esta basado en una ventana que al abrir muestra los trabajos que actualmente estan en la cola en el momento de su selección (para ver cambios debes vovler a cargar la vista)
+Es un componente reutilizable, que esta basado en una ventana que al abrir muestra los trabajos que actualmente estan en la cola en el momento de su selección (para ver cambios debes volver a cargar la vista)
 
 ## Servicios
 
 - Pending Service
 
-Se encarga de incializar la cola de pendientes asignado un nombre Random
+Se encarga de inicializar la cola de pendientes asignado un nombre Random
 
 - Running Service
 
-Se encarga de realizar la tareas, calcula el tiempo que le llevara ejecutarse y mediante una promesa se queda esperando ese tiempo. Una vez acabado avisa a Indez component para que actualice las colas.
+Se encarga de realizar la tareas, calcula el tiempo que le llevara ejecutarse y mediante una promesa se queda esperando ese tiempo. Una vez acabado avisa a Index component para que actualize las colas.
 
 - Finished Service
 
@@ -38,6 +38,7 @@ Indica si la tarea se ejecuto correctamente
 
 ## Mejoras a realizar
 
-Añadir efectos CSS para que la visalización sea mas satisfactoria
+Añadir y eliminar el tiempo real los elementos mostrados en la tabla sin necesidad de recargar otra vez la tabla
+Añadir efectos CSS para que la visualización sea mas satisfactoria
 Añadir más funcionalidades en los servicios
 Usar el patrón comando
